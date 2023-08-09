@@ -10,25 +10,23 @@ import View from 'ol/View'
 export default function MyMap(): React.ReactNode {
 
     useEffect(() => {
-        console.log("hello")
         const map = new Map({
             layers: [
-              new TileLayer({
+                new TileLayer({
                 source: new OSM(),
-              }),
+                }),
             ],
             target: 'mapdiv',
             view: new View({
-              center: [0, 0],
-              zoom: 2,
+                center: [0, 0],
+                zoom: 2,
             }),
-          });
+        });
     }, [])
 
     return (
         <>    
-            <div id="mapdiv" className={styles.mapdiv}>
-            </div>
+            <div id="mapdiv" className={styles.mapdiv}></div>
         </>
     )
 }
