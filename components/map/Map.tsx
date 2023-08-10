@@ -25,8 +25,6 @@ export default function MyMap(): React.ReactNode {
     }, [])
 
     return (
-        <>    
-            <div id="mapdiv" className={styles.mapdiv}></div>
-        </>
+        <div id="mapdiv" className={styles.mapdiv}></div>
     )
 }

@@ -1,23 +1,11 @@
 'use client'
 import Image from 'next/image'
-import Map from './components/map'
-import { useState, useEffect } from 'react'
+import Map from '../components/map/Map'
+import Item, { Connection, Point } from '../components/connection/Item'
+import { default as ConnectionList } from '../components/connection/List'
 import Dexie, { Table } from 'dexie'
 import { useLiveQuery } from 'dexie-react-hooks' 
 
-interface Point {
-  name: string,
-  coords: {
-    x: number,
-    y: number
-  }
-}
-interface Connection {
-  id?: number,
-  name: string, 
-  type: "bus" | "tram" | "train",
-  route: Point[]
-}
 
 const db = new Dexie('MyPublicTransit')
 db.version(1).stores({
@@ -52,17 +40,14 @@ export default function Home() {
 
   return (
     <main>
-      {connections?.map(conn => {
-        return (
-          <>
-          <h1>{conn.id} - {conn.name} ({conn.type})</h1>
-          <ul>
-          {conn.route.map(point => <li>{point.name} ({point.coords.x}, {point.coords.y})</li>)}
-          </ul>
-          </>
-        )
-      })}
-      <Map />
+      <div className="columns">
+        <div className="column is-one-third">
+          <ConnectionList connections={connections} />
+        </div>
+        <div className="column is-two-thirds">
+          <Map />
+        </div>
+      </div>
     </main>
   )
 }
