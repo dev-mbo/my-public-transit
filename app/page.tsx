@@ -1,16 +1,11 @@
 'use client'
 import Image from 'next/image'
 import Map from '../components/map/Map'
-import Item, { Connection, Point } from '../components/connection/Item'
+import { Connection, Point, db } from '../utils/db'
+import Item from '../components/connection/Item'
 import { default as ConnectionList } from '../components/connection/List'
-import Dexie, { Table } from 'dexie'
+
 import { useLiveQuery } from 'dexie-react-hooks' 
-
-
-const db = new Dexie('MyPublicTransit')
-db.version(1).stores({
-  connections: '++id, name, type, route'
-})
 
 // db.table("connections").add({
 //   name: "test 1",
@@ -32,7 +27,7 @@ db.version(1).stores({
 
 export default function Home() {
 
-  const connections = useLiveQuery((): Promise<Connection[]> => {
+  const connections = useLiveQuery<Connection[]>(() => {
       const connections = db.table("connections").toArray();
       return connections || [];
   }, [])

@@ -17,9 +17,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <section className="section">
         <div className="container">
-          {children}
+
+          <div className="columns is-centered">
+            <div className="column is-half">
+              <div className="block content">
+                <h1 className="title is-uppercase">My public transit:</h1>
+              </div>
+            </div>
+          </div>
+
+          <div className="columns">
+            <div className="column is-full">
+              {children}
+            </div>
+          </div>
+
         </div>
+        </section>
       </body>
     </html>
   )
