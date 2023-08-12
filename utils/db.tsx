@@ -1,6 +1,7 @@
 import Dexie, { Table } from 'dexie'
 
 export interface Point {
+    id: string,
     address: string,
     description?: string,
     coords: {
@@ -10,7 +11,7 @@ export interface Point {
 }
 export interface Connection {
     id: number,
-    name: string, 
+    name: string,
     type: "bus" | "tram" | "train",
     route: Point[]
 }
