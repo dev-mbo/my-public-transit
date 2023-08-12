@@ -1,29 +1,13 @@
 'use client'
-import Image from 'next/image'
+
 import Map from '../components/map/Map'
 import { Connection, Point, db } from '../utils/db'
-import Item from '../components/connection/Item'
 import { default as ConnectionList } from '../components/connection/List'
-
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import { useLiveQuery } from 'dexie-react-hooks' 
 
-// db.table("connections").add({
-//   name: "test 1",
-//   type: "bus",
-//   route: [{
-//     name: "test 1",
-//     coords: {
-//       x: 1,
-//       y: 2
-//     }
-//   }, {
-//     name: "test 2",
-//     coords: {
-//       x: 3,
-//       y: 4
-//     }
-//   }]
-// })
 
 export default function Home() {
 
@@ -32,12 +16,18 @@ export default function Home() {
       return connections || [];
   }, [])
 
+  const fallbackJsx = <p>
+    Loading .. <FontAwesomeIcon icon={faSpinner} spin />
+  </p>
 
   return (
     <main>
       <div className="columns">
         <div className="column is-one-third">
-          <ConnectionList connections={connections} />
+          {connections ?
+            <ConnectionList connections={connections} /> :
+            fallbackJsx
+          }
         </div>
         <div className="column is-two-thirds">
           <Map />

@@ -9,10 +9,11 @@ export interface Point {
         lon: number
     }
 }
+export type ConnectionType = "bus" | "tram" | "train"
 export interface Connection {
     id: number,
     name: string,
-    type: "bus" | "tram" | "train",
+    type: ConnectionType,
     route: Point[]
 }
 
