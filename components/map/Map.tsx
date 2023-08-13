@@ -38,7 +38,7 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
             return [
                 point.coords.lon,
                 point.coords.lat
-            ]    
+            ]
         })
     }
 
@@ -50,8 +50,8 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
             }))
             map.setTarget(mapRef.current)
             map.setView(new View({
-                center: transform([8.280680893828041, 49.97621982464091], 'EPSG:4326', 'EPSG:3857'),
-                zoom: 12,
+                center: [0, 0], 
+                zoom: 2
             }))
 
             map.on('click', (evt) => {
@@ -94,6 +94,11 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
         })
 
         map.addLayer(vectorLayer)
+
+        map.getView().setCenter(
+            transform([8.280680893828041, 49.97621982464091], 'EPSG:4326', 'EPSG:3857')
+        )
+        map.getView().setZoom(12)
 
         return () => { 
             map.removeLayer(vectorLayer)
