@@ -1,4 +1,6 @@
-import './bulma.css'
+import './globals.css'
+import 'bulma/css/bulma.css'
+import 'bulma-tooltip/dist/css/bulma-tooltip.min.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -18,23 +20,19 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <section className="section">
-        <div className="container">
+          <div className="container">
 
-          <div className="columns is-centered">
-            <div className="column is-half">
-              <div className="block content">
-                <h1 className="title is-uppercase">My public transit:</h1>
+            <div className="columns is-centered">
+              <h1 className="title is-uppercase mb-2">My public transit:</h1>
+            </div>
+
+            <div className="columns">
+              <div className="column is-full">
+                {children}
               </div>
             </div>
-          </div>
 
-          <div className="columns">
-            <div className="column is-full">
-              {children}
-            </div>
           </div>
-
-        </div>
         </section>
       </body>
     </html>

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Point } from "@/utils/db"
-import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faTrash, 
+    faPen,
+    faCircleInfo 
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type PointProps = {
@@ -12,8 +16,7 @@ type PointProps = {
 export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps): React.ReactNode {
 
     const [address, setAddress] = useState<string>(point.address)
-    const [lon, setLon] = useState<number>(point.coords.lon)
-    const [lat, setLat] = useState<number>(point.coords.lat)
+    const [coords, setCoords] = useState<{lat: number, lon: number}>(point.coords)
 
     const changeAddress = (evt: React.FormEvent<HTMLInputElement>) => {
         const value = evt.currentTarget.value 
@@ -21,6 +24,21 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
         handleChangePoint({
             id: point.id,
             address: value,
+            coords
+        })
+    }
+
+    const changeCoord = (evt: React.FormEvent<HTMLInputElement>) => {
+        const tmp = evt.currentTarget.value.split(",")
+        const lon = Number.parseFloat(tmp[0])
+        const lat = Number.parseFloat(tmp[1])
+        setCoords({
+            lon: lon,
+            lat: lat
+        })
+        handleChangePoint({
+            id: point.id,
+            address: address,
             coords: {
                 lat: lat,
                 lon: lon
@@ -28,31 +46,6 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
         })
     }
 
-    const changeLat = (evt: React.FormEvent<HTMLInputElement>) => {
-        const value = Number.parseFloat(evt.currentTarget.value) 
-        setLat(value)
-        handleChangePoint({
-            id: point.id,
-            address: address,
-            coords: {
-                lat: value,
-                lon: lon
-            }
-        })
-    }
-
-    const changeLon = (evt: React.FormEvent<HTMLInputElement>) => {
-        const value = Number.parseFloat(evt.currentTarget.value) 
-        setLon(value)
-        handleChangePoint({
-            id: point.id,
-            address: address,
-            coords: {
-                lat: lat,
-                lon: value
-            }
-        })
-    }
 
     return (
         <div className="block">
@@ -63,16 +56,17 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
                 </div>
             </div>
             <div className="field">
-                <div className="label">Latitude/Longitude:</div>
+                <div className="label">
+                    Latitude/Longitude:
+
+                    <span className="icon" data-tooltip="click on a place in the map to copy coordinates to clipboard">
+                        <FontAwesomeIcon icon={faCircleInfo} />
+                    </span>
+                </div>
                 <div className="field-body">
                     <div className="field">
                         <div className="control">
-                            <input type="text" className="input" value={lat} onChange={(evt) => changeLat(evt) } />
-                        </div>
-                    </div>
-                    <div className="field">
-                        <div className="control">
-                            <input type="text" className="input" value={lon} onChange={(evt) => changeLon(evt) } />
+                            <input type="text" className="input" value={coords.lon + "," + coords.lat} onChange={(evt) => changeCoord(evt) } />
                         </div>
                     </div>
                 </div>

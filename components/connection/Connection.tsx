@@ -1,6 +1,17 @@
-import { db, Connection, Point, ConnectionType } from "@/utils/db"
+import { Connection, Point, ConnectionType } from "@/utils/db"
 import { Point as EditPoint } from '../route/Point' 
-import { faTrash, faPlus, faPen, faEye } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faTrash, 
+    faPlus, 
+    faPen, 
+    faEye, 
+    faEyeSlash,
+    faBus,
+    faTrainTram,
+    faTrain,
+    faArrowRight,
+    faFlagCheckered,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { v4 as uuidv4 } from 'uuid'
 import React, { useState } from 'react'
@@ -8,18 +19,48 @@ import React, { useState } from 'react'
 type ItemProps = {
     connection: Connection,
     isEdit: boolean,
-    handleSetVisibleConnectionId: (id: number) => void,
+    isVisible: boolean,
+    handleSetVisibleId: (id: number) => void,
+    handleSetEditId: (id: number) => void,
     handleUpdateItem: (connection: Connection) => void,
     handleRemoveItem: (id: number) => void
 }
   
-export function Connection({ connection, isEdit, handleSetVisibleConnectionId, handleUpdateItem, handleRemoveItem }: ItemProps): React.ReactNode {
+export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, handleSetEditId, handleUpdateItem, handleRemoveItem }: ItemProps): React.ReactNode {
 
-    //const [ isEdit, setIsEdit ] = useState<boolean>(false)
-    const [ showOnMap, setShowOnMap ] = useState<boolean>(false)
     const [ name, setName ] = useState<string>(connection.name)
     const [ type, setType ] = useState<ConnectionType>(connection.type)
     const [ route, setRoute ] = useState<Point[]>(connection.route) 
+
+    const showRoute = () => {
+
+        return (
+            <div>
+                {showType()}
+                <span>&nbsp;</span>
+                {route.map((point: Point, index: number) => {
+                    return (
+                        <React.Fragment key={index}>
+                            <span>{point.address}&nbsp;</span> 
+                            {index < (route.length - 1) ? 
+                                <FontAwesomeIcon icon={faArrowRight} /> : <FontAwesomeIcon icon={faFlagCheckered} />
+                            }
+                            <span>&nbsp;</span>
+                        </React.Fragment>
+                    )
+                })}
+            </div>
+        )
+
+    }
+
+    const showType = () => {
+        switch(type) {
+            case 'bus': return <FontAwesomeIcon icon={faBus} />
+            case 'tram': return <FontAwesomeIcon icon={faTrainTram} />
+            case 'train': return <FontAwesomeIcon icon={faTrain} />
+        }
+    }
 
     const handleSubmit = () => {
         handleUpdateItem({
@@ -31,7 +72,6 @@ export function Connection({ connection, isEdit, handleSetVisibleConnectionId, h
             ]
         })
     }
-
 
     const handleRemovePoint = (id: string) => {
         setRoute(route.filter(point => {
@@ -82,38 +122,38 @@ export function Connection({ connection, isEdit, handleSetVisibleConnectionId, h
                         }
                     </div>
                 </div>
+
+                { isEdit &&
                 <div className="field">
                     <label className="label">Type:</label>
                     <div className="control">
-                        { isEdit ? 
-                            <div className="select">
-                                <select value={type} onChange={(evt) => setType(evt.currentTarget.value as ConnectionType) }>
-                                    <option value="bus" >Bus</option>
-                                    <option value="tram">Tram</option>
-                                    <option value="train">Train</option>
-                                </select>
-                            </div> :
-                            <p>{ type }</p>
-                        }
+                        <div className="select">
+                            <select value={type} onChange={(evt) => setType(evt.currentTarget.value as ConnectionType) }>
+                                <option value="bus" >Bus</option>
+                                <option value="tram">Tram</option>
+                                <option value="train">Train</option>
+                            </select>
+                        </div> 
                     </div>
                 </div>
+                }
                 
                 <div className="field">
                     <label className="label">Route:</label>
                     <div className="control">
-                        {isEdit ? 
-                            route.map(point => {
-                                return (
-                                    <EditPoint 
-                                        key={point.id} 
-                                        point={point} 
-                                        handleChangePoint={handleChangePoint} 
-                                        handleRemovePoint={handleRemovePoint} /> 
-                                )
-                            }) : route.length && 
-                                <p>
-                                    From { route[0].address } to { route[route.length - 1].address }
-                                </p> 
+                        {isEdit ?
+                            <ol>
+                                {route.map(point => {
+                                    return (
+                                        <li key={point.id}>
+                                            <EditPoint 
+                                                point={point} 
+                                                handleChangePoint={handleChangePoint} 
+                                                handleRemovePoint={handleRemovePoint} /> 
+                                        </li>
+                                    )
+                                })}
+                            </ol> : showRoute()
                         }
                     </div>
                 </div>
@@ -139,17 +179,14 @@ export function Connection({ connection, isEdit, handleSetVisibleConnectionId, h
             </div>
 
             <div className="column is-one-third">
-                       
-                { showOnMap ? 
-                    <button className="button is-small mr-1" onClick={() => setShowOnMap(!showOnMap) }>
-                        <FontAwesomeIcon icon={faEye}/>
-                    </button> :
-                    <button className="button is-small mr-1 is-dark" onClick={() => setShowOnMap(!showOnMap) }>
-                        <FontAwesomeIcon icon={faEye} inverse />
-                    </button>
+                <button className="button is-small mr-1" onClick={() => handleSetVisibleId(connection.id) }>
+                { isVisible ? 
+                    <FontAwesomeIcon icon={faEye}/> : 
+                    <FontAwesomeIcon icon={faEyeSlash} /> 
                 }
+                </button> 
 
-                <button className="button is-small mr-1" onClick={() => handleSetVisibleConnectionId(connection.id) }>
+                <button className="button is-small mr-1" onClick={() => handleSetEditId(connection.id) }>
                     <FontAwesomeIcon icon={faPen} />
                 </button>
                 

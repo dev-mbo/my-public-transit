@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Connection as Item } from './Connection'
 import { db, Connection } from '../../utils/db'
-import { FileWatcherEventKind } from "typescript";
 
-export default function List({ connections }: { connections: Connection[]}): React.ReactNode {
+type ListProps = {
+    connections: Connection[],
+    visibleId: number | null,
+    handleSetVisibleId: (id: number) => void
+}
+export default function List({ connections, visibleId, handleSetVisibleId }: ListProps): React.ReactNode {
 
-    const [visibleConnectionId, setVisibleConnectionId] = useState<number | null>(null)
+    const [editId, setEditId] = useState<number | null>(null)
 
-    const handleSetVisibleConnectionId = (id: number) => {
-        if (visibleConnectionId === id) {
-            setVisibleConnectionId(null)
+    const handleSetEditId = (id: number) => {
+        if (editId === id) {
+            setEditId(null)
         } else {
-            setVisibleConnectionId(id)
+            setEditId(id)
         }
     }
 
@@ -21,7 +25,7 @@ export default function List({ connections }: { connections: Connection[]}): Rea
                 ...connection
             })
 
-        setVisibleConnectionId(null)
+        setEditId(null)
     }
 
     const handleRemoveItem = (id: number) => {
@@ -54,16 +58,18 @@ export default function List({ connections }: { connections: Connection[]}): Rea
                 <h2 className="title is-4">Connections:</h2>
                 {connections.map((connection,index) => {
                     return (
-                        <>
+                        <React.Fragment key={connection.id} >
                             <Item 
-                                key={connection.id} 
-                                isEdit={visibleConnectionId === connection.id}
+                                isEdit={editId === connection.id}
+                                isVisible={visibleId === connection.id}
                                 connection={connection} 
                                 handleUpdateItem={handleUpdateItem}
-                                handleSetVisibleConnectionId={handleSetVisibleConnectionId}
+                                handleSetVisibleId={handleSetVisibleId}
+                                handleSetEditId={handleSetEditId}
                                 handleRemoveItem={handleRemoveItem} />
+
                             { index < (connections.length-1) && <hr /> }
-                        </>
+                        </React.Fragment>
                     )
                 })}
             </div>
