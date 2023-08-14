@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Point } from "@/utils/db"
 import { 
     faTrash, 
     faCircleInfo,
@@ -8,9 +7,9 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type PointProps = {
-    point: Point, 
-    handleChangePoint: (item: Point) => void,
+    point: IPoint, 
     handleRemovePoint: (id: string) => void
+    handleChangePoint: (item: IPoint) => void,
 }
 
 export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps): React.ReactNode {

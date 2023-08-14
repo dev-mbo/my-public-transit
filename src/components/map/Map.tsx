@@ -1,14 +1,12 @@
 'use client'
 import 'node_modules/ol/ol.css'
 import styles from './styles.module.css'
-import { useEffect, useRef } from "react"
-import { Connection } from '../../utils/db'
+import { useEffect, useRef, useMemo } from "react"
 import copy from 'copy-to-clipboard'
 
-import Map from 'ol/Map'
+import {Map, View} from 'ol'
 import OSM from 'ol/source/OSM'
 import TileLayer from 'ol/layer/Tile'
-import View from 'ol/View'
 
 import { LineString } from 'ol/geom'
 import Feature from 'ol/Feature'
@@ -21,14 +19,13 @@ import { transform } from 'ol/proj'
 import { fromLonLat, toLonLat } from 'ol/proj.js';
 
 type MapProps = {
-    connection: Connection | null
+    connection: IConnection | null
 }
-
-const map = new Map();
 
 export default function MyMap({ connection }: MapProps): React.ReactNode {
 
-    const mapRef = useRef<HTMLDivElement>(null)
+    const mapObj = useRef<Map | null>(null)
+    const mapDiv = useRef<HTMLDivElement>(null)
 
     const getLineStringFromConnection = () => {
         if (!connection) {
@@ -43,27 +40,29 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
     }
 
     useEffect(() => {
-        if (mapRef.current) {
-            
-            map.addLayer(new TileLayer({
-                source: new OSM()
-            }))
-            map.setTarget(mapRef.current)
-            map.setView(new View({
-                center: [0, 0], 
-                zoom: 2
-            }))
+        
+        const map = new Map()
+        map.addLayer(new TileLayer({
+            source: new OSM()
+        }))
+        map.setTarget(mapDiv.current!)
+        map.setView(new View({
+            center: [0, 0], 
+            zoom: 2
+        }))
 
-            map.on('click', (evt) => {
-                console.log(evt.coordinate)
+        map.on('click', (evt) => {
+            console.log(evt.coordinate)
 
-                const lonLat = toLonLat(evt.coordinate);
-                console.log(lonLat)
+            const lonLat = toLonLat(evt.coordinate);
+            console.log(lonLat)
 
-                copy(lonLat.toString())
-            })
+            copy(lonLat.toString())
+        })
+        mapObj.current = map
+        return () => {
+            mapObj.current && mapObj.current.setTarget(undefined)
         }
-        return () => map.setTarget(undefined)
 
     }, [])
 
@@ -93,25 +92,26 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
             })
         })
 
-        map.addLayer(vectorLayer)
+        if (mapObj.current) {
+            mapObj.current.addLayer(vectorLayer)
 
-        if (connection && connection.route.length) {
-            map.getView().setCenter(
-                transform(
-                    [connection.route[0].coords.lon, connection.route[0].coords.lat], 
-                    'EPSG:4326', 'EPSG:3857'
+            if (connection && connection.route.length) {
+                mapObj.current.getView().setCenter(
+                    transform(
+                        [connection.route[0].coords.lon, connection.route[0].coords.lat], 
+                        'EPSG:4326', 'EPSG:3857'
+                    )
                 )
-            )
+            }
+            mapObj.current.getView().setZoom(12)
         }
-        map.getView().setZoom(12)
-    
         return () => { 
-            map.removeLayer(vectorLayer)
+            mapObj.current && mapObj.current.removeLayer(vectorLayer)
         } 
 
     }, [connection])
 
     return (
-        <div id="mapdiv" ref={mapRef} className={styles.mapdiv}></div>
+        <div id="mapdiv" ref={mapDiv} className={styles.mapdiv}></div>
     )
 }

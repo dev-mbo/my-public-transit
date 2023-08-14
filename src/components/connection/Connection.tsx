@@ -1,4 +1,3 @@
-import { Connection, Point, ConnectionType } from "@/utils/db"
 import { Point as EditPoint } from '../route/Point' 
 import { 
     faTrash, 
@@ -17,12 +16,12 @@ import { v4 as uuidv4 } from 'uuid'
 import React, { useState } from 'react'
 
 type ItemProps = {
-    connection: Connection,
+    connection: IConnection,
     isEdit: boolean,
     isVisible: boolean,
     handleSetVisibleId: (id: number) => void,
     handleSetEditId: (id: number) => void,
-    handleUpdateItem: (connection: Connection) => void,
+    handleUpdateItem: (connection: IConnection) => void,
     handleRemoveItem: (id: number) => void
 }
   
@@ -30,7 +29,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
 
     const [ name, setName ] = useState<string>(connection.name)
     const [ type, setType ] = useState<ConnectionType>(connection.type)
-    const [ route, setRoute ] = useState<Point[]>(connection.route) 
+    const [ route, setRoute ] = useState<IPoint[]>(connection.route) 
 
     const showRoute = () => {
 
@@ -38,7 +37,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
             <div>
                 {showType()}
                 <span>&nbsp;</span>
-                {route.map((point: Point, index: number) => {
+                {route.map((point: IPoint, index: number) => {
                     return (
                         <React.Fragment key={index}>
                             <span>{point.address}&nbsp;</span> 
@@ -81,7 +80,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
         }))
     }
 
-    const handleChangePoint = (item: Point) => {
+    const handleChangePoint = (item: IPoint) => {
         setRoute(route.map(point => {
             if (point.id === item.id) {
                 return item

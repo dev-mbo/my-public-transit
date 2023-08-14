@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Connection as Item } from './Connection'
-import { db, Connection } from '../../utils/db'
+import { db } from '../../utils/db'
 
 type ListProps = {
-    connections: Connection[],
+    connections: IConnection[],
     visibleId: number | null,
     handleSetVisibleId: (id: number) => void
 }
@@ -19,7 +19,7 @@ export default function List({ connections, visibleId, handleSetVisibleId }: Lis
         }
     }
 
-    const handleUpdateItem = (connection: Connection) => {
+    const handleUpdateItem = (connection: IConnection) => {
         db.table("connections")
             .update(connection.id, {
                 ...connection
