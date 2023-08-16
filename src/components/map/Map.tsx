@@ -62,7 +62,7 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
         overlayObj.current = overlay
         map.addOverlay(overlay)
 
-        map.on('click', (evt) => {
+        map.on('click', evt => {
             console.log(evt.coordinate)
 
             const lonLat = toLonLat(evt.coordinate);
@@ -70,6 +70,8 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
 
             copy(lonLat.toString())
 
+        })
+        map.on('pointermove', evt => {
             const feature = map.forEachFeatureAtPixel(evt.pixel, feature => feature);
             
             if (overlayObj.current) {
