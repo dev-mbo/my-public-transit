@@ -21,11 +21,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <section className="section">
           <div className="container">
-
-            <div className="columns is-centered">
-              <h1 className="title is-uppercase mb-2">My public transit:</h1>
-            </div>
-
             <div className="columns">
               <div className="column is-full">
                 {children}
