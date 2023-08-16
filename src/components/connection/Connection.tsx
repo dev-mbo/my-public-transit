@@ -37,17 +37,13 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
             <div>
                 {showType()}
                 <span>&nbsp;</span>
-                {route.map((point: IPoint, index: number) => {
-                    return (
-                        <React.Fragment key={index}>
-                            <span>{point.address}&nbsp;</span> 
-                            {index < (route.length - 1) ? 
-                                <FontAwesomeIcon icon={faArrowRight} /> : <FontAwesomeIcon icon={faFlagCheckered} />
-                            }
-                            <span>&nbsp;</span>
-                        </React.Fragment>
-                    )
-                })}
+                {route.length && route[0].address}
+                <span>&nbsp;</span>
+                <FontAwesomeIcon icon={faArrowRight} /> 
+                <span>&nbsp;</span>
+                {route.length && route[route.length-1].address}
+                <span>&nbsp;</span>
+                <FontAwesomeIcon icon={faFlagCheckered} />                   
             </div>
         )
 
