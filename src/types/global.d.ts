@@ -8,7 +8,8 @@ declare global {
         coords: {
             lat: number,
             lon: number
-        }
+        },
+        position: number
     }
     export type ConnectionType = "bus" | "tram" | "train"
     export interface IConnection {

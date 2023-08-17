@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import { 
     faTrash, 
     faCircleInfo,
-    faLocationDot
+    faLocationDot,
+    faArrowUp,
+    faArrowDown
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type PointProps = {
     point: IPoint, 
-    handleRemovePoint: (id: string) => void
-    handleChangePoint: (item: IPoint) => void,
+    isLast: boolean,
+    handleRemovePoint: (id: string) => void,
+    handleChangePoint: (item: IPoint) => void
 }
 
-export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps): React.ReactNode {
-
-    const [address, setAddress] = useState<string>(point.address)
-    const [coords, setCoords] = useState<{lat: number, lon: number}>(point.coords)
+export function Point({ point, isLast, handleChangePoint, handleRemovePoint}: PointProps): React.ReactNode {
 
     const handlePositionClick = () => {
         const url = `https://nominatim.openstreetmap.org/search?q=${encodeURI(address)}&format=geocodejson&limit=1`;
@@ -24,13 +24,9 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
             .then(json => {
                 try {
                     const coords = json['features'][0]['geometry']['coordinates']
-                    setCoords({
-                        lon: coords[0],
-                        lat: coords[1]
-                    })
+
                     handleChangePoint({
-                        id: point.id,
-                        address: address,
+                        ...point,
                         coords: {
                             lon: coords[0],
                             lat: coords[1]
@@ -42,31 +38,31 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
             })
     }
 
-    const changeAddress = (evt: React.FormEvent<HTMLInputElement>) => {
-        const value = evt.currentTarget.value 
-        setAddress(value)
+    
+    const changePosition = (value: number) => {
         handleChangePoint({
-            id: point.id,
-            address: value,
-            coords
+            ...point,
+            position: value
         })
     }
 
-    const changeCoord = (evt: React.FormEvent<HTMLInputElement>) => {
-        const tmp = evt.currentTarget.value.split(",")
-        const lon = Number.parseFloat(tmp[0])
-        const lat = Number.parseFloat(tmp[1])
-        setCoords({
-            lon: lon,
-            lat: lat
-        })
+    const changeAddress = (value: string) => {
         handleChangePoint({
-            id: point.id,
-            address: address,
-            coords: {
-                lat: lat,
-                lon: lon
-            }
+            ...point,
+            address: value
+        })
+    }
+
+    const changeCoord = (value: string) => {
+        const lonLat = value.split(",")
+        const coords = {
+            lon: Number.parseFloat(lonLat[0]),
+            lat: Number.parseFloat(lonLat[1])
+        } 
+        
+        handleChangePoint({
+            ...point,
+            coords: coords
         })
     }
 
@@ -76,7 +72,7 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
             <div className="field">
                 <div className="label">Address:</div>
                 <div className="control is-flex is-flex-direction-row">
-                    <input type="text" className="input" value={address} onChange={(evt) => changeAddress(evt) } />
+                    <input type="text" className="input" value={point.address} onChange={(evt) => changeAddress(evt.currentTarget.value) } />
                     <button className="button ml-2" data-tooltip="request geo coordinates for address" onClick={handlePositionClick}>
                         <FontAwesomeIcon icon={faLocationDot} />
                     </button>
@@ -90,18 +86,26 @@ export function Point({ point, handleChangePoint, handleRemovePoint}: PointProps
                         <FontAwesomeIcon icon={faCircleInfo} />
                     </span>
                 </div>
-                <div className="field-body">
-                    <div className="field">
-                        <div className="control">
-                            <input type="text" className="input" value={coords.lon + "," + coords.lat} onChange={(evt) => changeCoord(evt) } />
-                        </div>
+                <div className="field">
+                    <div className="control">
+                        <input type="text" className="input" value={point.coords.lon + "," + point.coords.lat} onChange={evt => changeCoord(evt.currentTarget.value) } />
                     </div>
                 </div>
             </div>
             <div className="field">
-                <button className="button is-small" onClick={() => handleRemovePoint(point.id) }>
+                <button className="button is-small mr-2" onClick={() => handleRemovePoint(point.id)}>
                     <FontAwesomeIcon icon={faTrash} />
                 </button>
+                {point.position > 0 &&
+                    <button className="button is-small mr-2" onClick={() => changePosition(point.position - 1)}>
+                        <FontAwesomeIcon icon={faArrowUp} />
+                    </button>
+                }
+                {!isLast &&
+                    <button className="button is-small mr-2" onClick={() => changePosition(point.position + 1)}>
+                        <FontAwesomeIcon icon={faArrowDown} />
+                    </button>
+                }
             </div>
         </div>
             

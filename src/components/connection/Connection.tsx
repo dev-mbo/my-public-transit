@@ -31,6 +31,11 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
     const [ type, setType ] = useState<ConnectionType>(connection.type)
     const [ route, setRoute ] = useState<IPoint[]>(connection.route) 
 
+    const orderedRoute = route.sort((a: IPoint, b: IPoint) => {
+        return a.position - b.position
+    }) 
+    const lastPos = Math.max(...route.map(point => point.position))
+
     const showRoute = () => {
 
         return (
@@ -77,16 +82,21 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
     }
 
     const handleChangePoint = (item: IPoint) => {
-        setRoute(route.map(point => {
+        let itemOldPos = route.filter(point => point.id === item.id)[0].position
+        let updatedRoute = route.map(point => {
             if (point.id === item.id) {
                 return item
             }
+            if (point.id !== item.id && point.position === item.position) {
+                point.position = itemOldPos
+            }
             return point
-        }))
+        })
+        setRoute(updatedRoute)
     }
 
     const handleAddPoint = () => {
-        const uniqid = uuidv4();
+        const uniqid = uuidv4()
         setRoute([ 
             ...route, 
             {
@@ -95,7 +105,8 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
                 coords: {
                     lat: 0,
                     lon: 0
-                }
+                },
+                position: lastPos+1
             }
         ])
     }
@@ -138,11 +149,12 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
                     <div className="control">
                         {isEdit ?
                             <ol>
-                                {route.map(point => {
+                                {orderedRoute.map(point => {
                                     return (
                                         <li key={point.id}>
                                             <EditPoint 
-                                                point={point} 
+                                                point={point}
+                                                isLast={point.position === lastPos} 
                                                 handleChangePoint={handleChangePoint} 
                                                 handleRemovePoint={handleRemovePoint} /> 
                                         </li>
