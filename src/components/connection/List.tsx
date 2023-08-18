@@ -5,7 +5,7 @@ import { updateConnection, removeConnection, addConnection } from '../../utils/d
 type ListProps = {
     connections: IConnection[],
     visibleId: number | null,
-    handleSetVisibleId: (id: number) => void,
+    handleSetVisibleId: (id: number, editMode?: boolean) => void,
     handleChangeConnection: (connection: IConnection) => void
 }
 
@@ -18,6 +18,7 @@ export default function List({ connections, visibleId, handleSetVisibleId, handl
             setEditId(null)
         } else {
             setEditId(id)
+            handleSetVisibleId(id, true)
         }
     }
 

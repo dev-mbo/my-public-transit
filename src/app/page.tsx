@@ -34,8 +34,8 @@ export default function Home() {
     }))
   }
   
-  const handleSetVisibleId = (id: number) => {
-    if (visibleId === id) {
+  const handleSetVisibleId = (id: number, editMode: boolean = false) => {
+    if (visibleId === id && !editMode) {
         setVisibleId(null)
     } else {
         setVisibleId(id)

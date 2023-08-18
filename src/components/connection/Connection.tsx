@@ -20,7 +20,7 @@ type ItemProps = {
     connection: IConnection,
     isEdit: boolean,
     isVisible: boolean,
-    handleSetVisibleId: (id: number) => void,
+    handleSetVisibleId: (id: number, editMode?: boolean) => void,
     handleSetEditId: (id: number) => void,
     handleUpdateConnection: (connection: IConnection) => void,
     handleRemoveConnection: (id: number) => void,

@@ -18,7 +18,7 @@ type PointProps = {
 export function Point({ point, isLast, handleChangePoint, handleRemovePoint}: PointProps): React.ReactNode {
 
     const handlePositionClick = () => {
-        const url = `https://nominatim.openstreetmap.org/search?q=${encodeURI(address)}&format=geocodejson&limit=1`;
+        const url = `https://nominatim.openstreetmap.org/search?q=${encodeURI(point.address)}&format=geocodejson&limit=1`;
         fetch(url)
             .then(data => data.json())
             .then(json => {
