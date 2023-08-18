@@ -24,8 +24,9 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
     const mapDiv = useRef<HTMLDivElement>(null)
     const overlayObj = useRef<Overlay | null>(null)
     const popupDiv = useRef<HTMLDivElement>(null)
-
+    
     const [overlayDescription, setOverlayDescription] = useState<string>("")
+    const [clipboardCoords, setClipboardCoords] = useState<number[]>([])
 
     const getLineStringFromConnection = () => {
         if (!connection) {
@@ -40,7 +41,6 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
     }
 
     useEffect(() => {
-        
         const map = new Map()
         map.addLayer(new TileLayer({
             source: new OSM()
@@ -69,8 +69,9 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
             console.log(lonLat)
 
             copy(lonLat.toString())
-
+            setClipboardCoords(lonLat)
         })
+
         map.on('pointermove', evt => {
             const feature = map.forEachFeatureAtPixel(evt.pixel, feature => feature);
             
@@ -163,9 +164,10 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
     }, [connection])
 
     return (
-        <>
+        <div className="mapWrapper">
             <div id="mapdiv" ref={mapDiv} className={styles.mapdiv}></div>
             <div ref={popupDiv} className="tag is-info">{overlayDescription}</div>
-        </>
+            <div className={styles.clipboardCoords}>{clipboardCoords.join(",")}</div>
+        </div>
     )
 }

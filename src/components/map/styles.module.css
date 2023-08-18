@@ -1,5 +1,13 @@
+.mapWrapper {
+    position: fixed;
+}
 .mapdiv {
     width: 900px;
     height: 800px;
-    position: fixed;
+    
+}
+
+.clipboardCoords {
+    font-size: 14px;
+    font-style: italic;
 }
