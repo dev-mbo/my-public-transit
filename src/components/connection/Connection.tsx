@@ -37,18 +37,27 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
     const lastPos = Math.max(...route.map(point => point.position))
 
     const showRoute = () => {
-
+        const start = route.length ? route[0].address : null  
+        const end = route.length > 1 ? route[route.length - 1].address : null
         return (
             <div>
                 {showType()}
-                <span>&nbsp;</span>
-                {route.length && route[0].address}
-                <span>&nbsp;</span>
-                <FontAwesomeIcon icon={faArrowRight} /> 
-                <span>&nbsp;</span>
-                {route.length && route[route.length-1].address}
-                <span>&nbsp;</span>
-                <FontAwesomeIcon icon={faFlagCheckered} />                   
+                {start &&   
+                    <>
+                    <span>&nbsp;</span>
+                    {start}
+                    <span>&nbsp;</span>
+                    </>
+                }
+                {end &&
+                    <>
+                    <FontAwesomeIcon icon={faArrowRight} /> 
+                    <span>&nbsp;</span>
+                    {end}
+                    <span>&nbsp;</span>
+                    <FontAwesomeIcon icon={faFlagCheckered} />
+                    </>
+                }
             </div>
         )
 

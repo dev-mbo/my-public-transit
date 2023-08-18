@@ -47,7 +47,10 @@ export default function List({ connections, visibleId, handleSetVisibleId, handl
             </div>
 
             <div className="block">
-                <h2 className="title is-4">Connections:</h2>
+                {/* <h2 className="title is-4">Connections:</h2> */}
+                {!connections.length && 
+                    <p>There are no bus, tram or train connections yet.</p>
+                }
                 {connections.map((connection,index) => {
                     return (
                         <React.Fragment key={connection.id} >
