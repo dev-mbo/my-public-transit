@@ -3,13 +3,14 @@ import {
     faTrash, 
     faPlus, 
     faPen, 
+    faXmark,
     faEye, 
     faEyeSlash,
     faBus,
     faTrainTram,
     faTrain,
     faArrowRight,
-    faFlagCheckered,
+    faFlagCheckered
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { v4 as uuidv4 } from 'uuid'
@@ -220,7 +221,10 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
                 </button> 
 
                 <button className="button is-small mr-1" onClick={() => handleSetEditId(connection.id) }>
-                    <FontAwesomeIcon icon={faPen} />
+                { !isEdit ? 
+                    <FontAwesomeIcon icon={faPen} /> : 
+                    <FontAwesomeIcon icon={faXmark} />
+                }
                 </button>
                 
                 <button className="button is-small" onClick={() => handleRemoveConnection(connection.id!) }>
