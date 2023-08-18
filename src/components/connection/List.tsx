@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Connection as Item } from './Connection'
-import { db } from '../../utils/db'
+import { Connection } from './Connection'
+import { updateConnection, removeConnection, addConnection } from '../../utils/database'
 
 type ListProps = {
     connections: IConnection[],
     visibleId: number | null,
-    handleSetVisibleId: (id: number) => void
+    handleSetVisibleId: (id: number) => void,
+    handleChangeConnection: (connection: IConnection) => void
 }
-export default function List({ connections, visibleId, handleSetVisibleId }: ListProps): React.ReactNode {
+
+export default function List({ connections, visibleId, handleSetVisibleId, handleChangeConnection }: ListProps): React.ReactNode {
 
     const [editId, setEditId] = useState<number | null>(null)
 
@@ -19,27 +21,17 @@ export default function List({ connections, visibleId, handleSetVisibleId }: Lis
         }
     }
 
-    const handleUpdateItem = (connection: IConnection) => {
-        db.table("connections")
-            .update(connection.id, {
-                ...connection
-            })
-
+    const handleUpdateConnection = (connection: IConnection) => {
+        updateConnection(connection)
         setEditId(null)
     }
 
-    const handleRemoveItem = (id: number) => {
-        db.table("connections")
-            .where("id")
-            .equals(id)
-            .delete()
-            .then((deleteCount) => {
-                console.log(`Successfully deleted item with id ${id}`)
-            })
+    const handleRemoveConnection = (id: number) => {
+        removeConnection(id)
     }
 
-    const handleAddItem = () => {
-        db.table("connections").add({
+    const handleAddConnection = () => {
+        addConnection({
             name: "New connection",
             type: "bus",
             route: []
@@ -49,7 +41,7 @@ export default function List({ connections, visibleId, handleSetVisibleId }: Lis
     return (
         <div className="connections-list">
             <div className="block">
-                <button className="button is-primary" onClick={handleAddItem}>
+                <button className="button is-primary" onClick={handleAddConnection}>
                     Add connection
                 </button>
             </div>
@@ -59,14 +51,15 @@ export default function List({ connections, visibleId, handleSetVisibleId }: Lis
                 {connections.map((connection,index) => {
                     return (
                         <React.Fragment key={connection.id} >
-                            <Item 
+                            <Connection 
                                 isEdit={editId === connection.id}
                                 isVisible={visibleId === connection.id}
                                 connection={connection} 
-                                handleUpdateItem={handleUpdateItem}
                                 handleSetVisibleId={handleSetVisibleId}
                                 handleSetEditId={handleSetEditId}
-                                handleRemoveItem={handleRemoveItem} />
+                                handleUpdateConnection={handleUpdateConnection}
+                                handleRemoveConnection={handleRemoveConnection}
+                                handleChangeConnection={handleChangeConnection} />
 
                             { index < (connections.length-1) && <hr /> }
                         </React.Fragment>

@@ -1,7 +1,7 @@
 'use client'
 
 import Map from '../components/map/Map'
-import {  db } from '../utils/db'
+import {  db } from '../utils/database'
 import { default as ConnectionList } from '../components/connection/List'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,32 +12,44 @@ import { useState } from 'react'
 
 export default function Home() {
 
-  const connections = useLiveQuery<IConnection[]>(() => {
-      const connections = db.table("connections").toArray();
-      connections.then(connections => {
-        if (connections.length && visibleId === null) {
-          setVisibleId(connections[0].id)
-        }
-      })
-      return connections || [];
-  }, [])
-
+  const [connections, setConnections] = useState<IConnection[]>([])
   const [visibleId, setVisibleId] = useState<number | null>(connections && connections.length ? connections[0].id : null)
 
-  const getVisibleConnection = () => {
-    let visibleConnection = null;
-    if (connections && connections.length)
-      visibleConnection = connections.filter(connection => connection.id === visibleId)[0]
-    return visibleConnection
+  let data = useLiveQuery<IConnection[]>(() => {
+      const data = db.table("connections").toArray();
+      data.then(data => {
+        if (data.length && visibleId === null) {
+          setVisibleId(data[0].id)
+        }
+        setConnections(data)
+      })
+      return data || [];
+  }, [])
+
+  const handleChangeConnection = (connection: IConnection) => {
+    setConnections(connections.map(item => {
+      if (item.id === connection.id) {
+        return connection
+      }
+      return item
+    }))
   }
   
-
   const handleSetVisibleId = (id: number) => {
-      if (visibleId === id) {
-          setVisibleId(null)
-      } else {
-          setVisibleId(id)
-      }
+    if (visibleId === id) {
+        setVisibleId(null)
+    } else {
+        setVisibleId(id)
+    }
+  }
+
+
+  const getVisibleConnection = (): IConnection | null  => {
+    let visibleConnection = null;
+    if (connections && connections.length) {
+      visibleConnection = connections.filter(connection => connection.id === visibleId)[0]
+    }
+    return visibleConnection
   }
 
   const fallbackJsx = <p>
@@ -48,13 +60,18 @@ export default function Home() {
     <main>
       <div className="columns">
         <div className="column is-one-third">
-          {connections ?
-            <ConnectionList connections={connections} visibleId={visibleId} handleSetVisibleId={handleSetVisibleId} /> :
+          {data ?
+            <ConnectionList 
+              connections={connections}
+              visibleId={visibleId} 
+              handleSetVisibleId={handleSetVisibleId} 
+              handleChangeConnection={handleChangeConnection} /> :
             fallbackJsx
           } 
         </div>
         <div className="column is-two-thirds">
-          <Map connection={getVisibleConnection()} />
+          <Map 
+            connection={getVisibleConnection()} />
         </div>
       </div>
     </main>

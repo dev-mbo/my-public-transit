@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { 
     faTrash, 
     faCircleInfo,
@@ -12,7 +12,7 @@ type PointProps = {
     point: IPoint, 
     isLast: boolean,
     handleRemovePoint: (id: string) => void,
-    handleChangePoint: (item: IPoint) => void
+    handleChangePoint: (point: IPoint) => void
 }
 
 export function Point({ point, isLast, handleChangePoint, handleRemovePoint}: PointProps): React.ReactNode {

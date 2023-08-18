@@ -13,7 +13,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { v4 as uuidv4 } from 'uuid'
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 
 type ItemProps = {
     connection: IConnection,
@@ -21,19 +21,19 @@ type ItemProps = {
     isVisible: boolean,
     handleSetVisibleId: (id: number) => void,
     handleSetEditId: (id: number) => void,
-    handleUpdateItem: (connection: IConnection) => void,
-    handleRemoveItem: (id: number) => void
+    handleUpdateConnection: (connection: IConnection) => void,
+    handleRemoveConnection: (id: number) => void,
+    handleChangeConnection: (connection: IConnection) => void
 }
   
-export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, handleSetEditId, handleUpdateItem, handleRemoveItem }: ItemProps): React.ReactNode {
+export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, handleSetEditId, handleUpdateConnection, handleRemoveConnection, handleChangeConnection }: ItemProps): React.ReactNode {
 
-    const [ name, setName ] = useState<string>(connection.name)
-    const [ type, setType ] = useState<ConnectionType>(connection.type)
-    const [ route, setRoute ] = useState<IPoint[]>(connection.route) 
+    const [name, setName] = useState<string>(connection.name)
+    const [type, setType] = useState<ConnectionType>(connection.type)
 
-    const orderedRoute = route.sort((a: IPoint, b: IPoint) => {
+    const route = useMemo(() => connection.route.sort((a: IPoint, b: IPoint) => {
         return a.position - b.position
-    }) 
+    }), [connection]) 
     const lastPos = Math.max(...route.map(point => point.position))
 
     const showRoute = () => {
@@ -63,7 +63,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
     }
 
     const handleSubmit = () => {
-        handleUpdateItem({
+        handleUpdateConnection({
             id: connection.id,
             name: name,
             type: type,
@@ -74,30 +74,41 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
     }
 
     const handleRemovePoint = (id: string) => {
-        setRoute(route.filter(point => {
+        const updatedRoute = route.filter(point => {
             if (point.id !== id) {
                 return point
             }
-        }))
+        })
+        handleChangeConnection({
+            id: connection.id,
+            name,
+            type,
+            route: updatedRoute
+        })
     }
 
-    const handleChangePoint = (item: IPoint) => {
-        let itemOldPos = route.filter(point => point.id === item.id)[0].position
-        let updatedRoute = route.map(point => {
-            if (point.id === item.id) {
-                return item
+    const handleChangePoint = (point: IPoint) => {
+        const itemOldPos = route.filter(item => item.id === point.id)[0].position
+        const updatedRoute = route.map(item => {
+            if (item.id === point.id) {
+                return point
             }
-            if (point.id !== item.id && point.position === item.position) {
-                point.position = itemOldPos
+            if (item.id !== point.id && item.position === point.position) {
+                item.position = itemOldPos
             }
-            return point
+            return item
         })
-        setRoute(updatedRoute)
+        handleChangeConnection({
+            id: connection.id,
+            name,
+            type,
+            route: updatedRoute
+        })
     }
 
     const handleAddPoint = () => {
         const uniqid = uuidv4()
-        setRoute([ 
+        const updatedRoute = [ 
             ...route, 
             {
                 id: uniqid,
@@ -108,7 +119,13 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
                 },
                 position: lastPos+1
             }
-        ])
+        ]
+        handleChangeConnection({
+            id: connection.id,
+            name,
+            type,
+            route: updatedRoute
+        })
     }
 
     return (
@@ -149,7 +166,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
                     <div className="control">
                         {isEdit ?
                             <ol>
-                                {orderedRoute.map(point => {
+                                {route.map(point => {
                                     return (
                                         <li key={point.id}>
                                             <EditPoint 
@@ -197,7 +214,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
                     <FontAwesomeIcon icon={faPen} />
                 </button>
                 
-                <button className="button is-small" onClick={() => handleRemoveItem(connection.id!) }>
+                <button className="button is-small" onClick={() => handleRemoveConnection(connection.id!) }>
                     <FontAwesomeIcon icon={faTrash} />
                 </button>
             </div>
