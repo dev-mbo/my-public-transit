@@ -7,23 +7,26 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { useLiveQuery } from 'dexie-react-hooks' 
-import { useState, useMemo } from 'react' 
+import { useEffect, useState, useMemo } from 'react' 
 
 export default function Home() {
 
   const [connections, setConnections] = useState<IConnection[]>([])
-  const [visibleId, setVisibleId] = useState<number | null>(connections && connections.length ? connections[0].id : null)
+  const [visibleId, setVisibleId] = useState<number | null>(null)
 
   let data = useLiveQuery<IConnection[]>(() => {
       const data = db.table("connections").toArray();
       data.then(data => {
-        if (data.length && visibleId === null) {
-          setVisibleId(data[0].id)
-        }
         setConnections(data)
       })
       return data || [];
   }, [])
+
+  useEffect(() => {
+    if (connections.length && visibleId === null) {
+      setVisibleId(connections[0].id)
+    }
+  }, [connections])
 
   const handleChangeConnection = (connection: IConnection) => {
     setConnections(connections.map(item => {
