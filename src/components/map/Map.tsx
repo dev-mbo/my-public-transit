@@ -2,6 +2,7 @@
 import 'node_modules/ol/ol.css'
 import styles from './styles.module.css'
 import { useEffect, useRef, useState } from "react"
+import { faCrosshairs } from '@fortawesome/free-solid-svg-icons'
 import copy from 'copy-to-clipboard'
 
 import {Map, View, Overlay} from 'ol'
@@ -13,6 +14,7 @@ import VectorLayer from 'ol/layer/Vector'
 import TileLayer from 'ol/layer/Tile'
 import { Style, Stroke, Circle, Fill } from 'ol/style'
 import { transform, fromLonLat, toLonLat } from 'ol/proj'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 type MapProps = {
     connection: IConnection | null
@@ -63,8 +65,6 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
         map.addOverlay(overlay)
 
         map.on('click', evt => {
-            console.log(evt.coordinate)
-
             const lonLat = toLonLat(evt.coordinate);
             console.log(lonLat)
 
@@ -164,10 +164,16 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
     }, [connection])
 
     return (
-        <div className="mapWrapper">
+        <div className={styles.mapWrapper}>
             <div id="mapdiv" ref={mapDiv} className={styles.mapdiv}></div>
             <div ref={popupDiv} className="tag is-info">{overlayDescription}</div>
-            <div className={styles.clipboardCoords}>{clipboardCoords.join(",")}</div>
+            {/* fade coordinates in and out */}
+            {clipboardCoords.length > 0 && 
+                <div key={clipboardCoords.join(",")} className={styles.fadeInFadeOut}>
+                    <FontAwesomeIcon icon={faCrosshairs} />&nbsp;
+                    {clipboardCoords.join(",")}
+                </div>
+            }
         </div>
     )
 }

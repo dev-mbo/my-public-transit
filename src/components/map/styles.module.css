@@ -1,13 +1,19 @@
 .mapWrapper {
+    height: 100%;
+    width: 100%;
     position: fixed;
 }
 .mapdiv {
     width: 900px;
-    height: 800px;
-    
+    height: 600px;
 }
 
-.clipboardCoords {
-    font-size: 14px;
-    font-style: italic;
+.fadeInFadeOut {
+    opacity: 0;
+    animation: fade 3s linear;
+}
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
 }
