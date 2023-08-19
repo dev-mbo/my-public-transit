@@ -7,7 +7,7 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { useLiveQuery } from 'dexie-react-hooks' 
-import { useEffect, useState, useMemo } from 'react' 
+import { useEffect, useState } from 'react' 
 
 export default function Home() {
 
@@ -45,13 +45,13 @@ export default function Home() {
     }
   }
 
-  const visibleConnection = useMemo((): IConnection | null  => {
+  const getVisibleConnection = (): IConnection | null  => {
     let visibleConnection = null;
     if (connections && connections.length) {
       visibleConnection = connections.filter(connection => connection.id === visibleId)[0]
     }
     return visibleConnection
-  }, [visibleId])
+  }
 
   const fallbackJsx = <p>
     Loading .. <FontAwesomeIcon icon={faSpinner} spin />
@@ -71,7 +71,7 @@ export default function Home() {
           } 
         </div>
         <div className="column is-two-thirds">
-          <Map connection={visibleConnection} />
+          <Map connection={getVisibleConnection()} />
         </div>
       </div>
     </main>
