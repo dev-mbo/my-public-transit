@@ -118,14 +118,19 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
 
     const handleAddPoint = () => {
         const uniqid = uuidv4()
+        let lon = 0, lat = 0
+        if (route.length) {
+            lon = route[route.length-1].coords.lon
+            lat = route[route.length-1].coords.lat
+        }
         const updatedRoute = [ 
             ...route, 
             {
                 id: uniqid,
                 address: "",
                 coords: {
-                    lat: 0,
-                    lon: 0
+                    lon: lon,
+                    lat: lat
                 },
                 position: lastPos+1
             }
