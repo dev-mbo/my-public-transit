@@ -174,8 +174,8 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
 
     
     useEffect(() => {
-        if (mapObj.current && connection) {
-            const {lon, lat} = connection.route[Math.round(connection.route.length / 2)].coords
+        if (mapObj.current && connection && connection.route.length > 0) {
+            const { lon, lat } = connection.route[Math.round(connection.route.length / 2)].coords
             mapObj.current.getView().setCenter(
                 transform(
                     [ lon, lat ],
