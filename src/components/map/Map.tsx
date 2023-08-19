@@ -42,6 +42,8 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
         })
     }
 
+    const visibleId = connection ? connection.id : null
+
     useEffect(() => {
         const map = new Map()
         map.addLayer(new TileLayer({
@@ -160,7 +162,7 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
                 const currentZoom = mapObj.current.getView().getZoom()
                 
                 if (currentZoom && currentZoom <= 2) {
-                    mapObj.current.getView().setZoom(13)
+                    mapObj.current.getView().setZoom(12)
                 }
             }
         }
@@ -169,6 +171,20 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
         } 
 
     }, [connection])
+
+    
+    useEffect(() => {
+        if (mapObj.current && connection) {
+            const {lon, lat} = connection.route[Math.round(connection.route.length / 2)].coords
+            mapObj.current.getView().setCenter(
+                transform(
+                    [ lon, lat ],
+                    'EPSG:4326', 'EPSG:3857'
+                )
+            )
+            mapObj.current.getView().setZoom(12)
+        }
+    }, [visibleId])
 
     return (
         <div className={styles.mapWrapper}>
