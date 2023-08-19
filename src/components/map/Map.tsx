@@ -148,14 +148,21 @@ export default function MyMap({ connection }: MapProps): React.ReactNode {
             mapObj.current.addLayer(vectorLayer)
 
             if (connection && connection.route.length) {
+                const { lon, lat } = connection.route.slice(-1)[0].coords
+                
                 mapObj.current.getView().setCenter(
                     transform(
-                        [connection.route[Math.round(connection.route.length/2)].coords.lon, connection.route[0].coords.lat], 
+                        [ lon, lat ], 
                         'EPSG:4326', 'EPSG:3857'
                     )
                 )
+
+                const currentZoom = mapObj.current.getView().getZoom()
+                
+                if (currentZoom && currentZoom <= 2) {
+                    mapObj.current.getView().setZoom(13)
+                }
             }
-            mapObj.current.getView().setZoom(13)
         }
         return () => { 
             mapObj.current && mapObj.current.removeLayer(vectorLayer)
