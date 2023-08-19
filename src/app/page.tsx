@@ -1,7 +1,7 @@
 'use client'
 
 import Map from '../components/map/Map'
-import {  db } from '../utils/database'
+import { getConnections } from '../utils/database'
 import { default as ConnectionList } from '../components/connection/List'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,7 +15,7 @@ export default function Home() {
   const [visibleId, setVisibleId] = useState<number | null>(null)
 
   let data = useLiveQuery<IConnection[]>(() => {
-      const data = db.table("connections").toArray();
+      const data = getConnections()
       data.then(data => {
         setConnections(data)
       })

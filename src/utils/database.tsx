@@ -5,13 +5,13 @@ db.version(1).stores({
   connections: '++id, name, type, route'
 })
 
+export const getConnections = (): Promise<IConnection[]> => db.table("connections").toArray()
 
 export const updateConnection = (connection: IConnection) => {
   db.table("connections")
       .update(connection.id, {
           ...connection
       })
-
 }
 
 export const removeConnection = (id: number) => {
