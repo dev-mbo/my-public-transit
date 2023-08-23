@@ -5,7 +5,14 @@ db.version(1).stores({
   connections: '++id, name, type, route'
 })
 
-export const getConnections = (): Promise<IConnection[]> => db.table("connections").toArray()
+export const getConnections = (): Promise<IConnection[]> => {
+  return db.table("connections")
+          .orderBy("type")
+          .toArray()
+          .then(connections => {
+            return connections.sort((a, b) => a.name.localeCompare(b.name))
+          })
+}
 
 export const updateConnection = (connection: IConnection) => {
   db.table("connections")
