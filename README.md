@@ -1,6 +1,6 @@
 # my-public-transit
 
-show routes for the bus and tram lines nearby
+show routes for the bus and tram lines nearby. click [here](https://dev-mbo.github.io) for a demo of this project.
 
 <hr/>
 
