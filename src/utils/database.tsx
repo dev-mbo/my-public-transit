@@ -38,7 +38,7 @@ export const importExampleData = () => {
           addConnection(connection)
         }
       } catch (error) {
-        
+        console.log(error)
       }
     })
 }

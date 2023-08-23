@@ -24,11 +24,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <section className="section">
           <div className="container">
-            <div className="columns">
-              <div className="column is-full">
-                {children}
-              </div>
-            </div>
+              {children}
           </div>
         </section>
       </body>
