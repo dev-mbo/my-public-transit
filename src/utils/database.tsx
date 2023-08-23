@@ -27,3 +27,18 @@ export const removeConnection = (id: number) => {
 export const addConnection = (connection: {name: string, type: ConnectionType, route: IPoint[]}) => {
   db.table("connections").add(connection)
 }
+
+export const importExampleData = () => {
+  fetch('/data.json')
+    .then(data => data.json())
+    .then(json => {
+      try {
+        const connections: IConnection[] = json
+        for (let connection of connections) {
+          addConnection(connection)
+        }
+      } catch (error) {
+        
+      }
+    })
+}

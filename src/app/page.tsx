@@ -1,6 +1,9 @@
 'use client'
 
 import Map from '../components/map/Map'
+import TabList from '../components/tabs/TabList'
+import ImportForm from '../components/import-export/ImportForm'
+import ExportForm from '../components/import-export/ExportForm'
 import { getConnections } from '../utils/database'
 import { default as ConnectionList } from '../components/connection/List'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
@@ -14,8 +17,10 @@ export default function Home() {
   const [connections, setConnections] = useState<IConnection[]>([])
   const [visibleId, setVisibleId] = useState<number | null>(null)
 
-  let data = useLiveQuery<IConnection[]>(() => {
-      const data = getConnections()
+  const [tab, setTab] = useState<"list" | "import" | "export">("list")
+
+  const data = useLiveQuery<IConnection[]>(() => {
+      const data = getConnections() 
       data.then(data => {
         setConnections(data)
       })
@@ -61,14 +66,24 @@ export default function Home() {
     <main>
       <div className="columns">
         <div className="column is-one-third">
-          {data ?
-            <ConnectionList 
-              connections={connections}
-              visibleId={visibleId} 
-              handleSetVisibleId={handleSetVisibleId} 
-              handleChangeConnection={handleChangeConnection} /> :
-            fallbackJsx
-          } 
+          <TabList tab={tab} onClickHandler={setTab}/>  
+          {tab === "list" &&
+            (
+              data ?
+                <ConnectionList 
+                  connections={connections}
+                  visibleId={visibleId} 
+                  handleSetVisibleId={handleSetVisibleId} 
+                  handleChangeConnection={handleChangeConnection} /> :
+                fallbackJsx 
+            )
+          }
+          {tab === "import" &&  
+            <ImportForm />
+          }
+          {tab === "export" && 
+            <ExportForm />
+          }
         </div>
         <div className="column is-two-thirds">
           <Map connection={getVisibleConnection()} />

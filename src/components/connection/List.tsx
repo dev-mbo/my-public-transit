@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Connection } from './Connection'
-import { updateConnection, removeConnection, addConnection } from '../../utils/database'
+import { updateConnection, removeConnection, addConnection, importExampleData } from '../../utils/database'
 
 type ListProps = {
     connections: IConnection[],
@@ -50,7 +50,7 @@ export default function List({ connections, visibleId, handleSetVisibleId, handl
             <div className="block">
                 {/* <h2 className="title is-4">Connections:</h2> */}
                 {!connections.length && 
-                    <p>There are no bus, tram or train connections yet.</p>
+                    <p>This looks very empty here, maybe you want to add some <a onClick={() => importExampleData()}>data</a>.</p>
                 }
                 {connections.map((connection,index) => {
                     return (
