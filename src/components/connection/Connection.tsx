@@ -35,7 +35,7 @@ export function Connection({ connection, isEdit, isVisible, handleSetVisibleId, 
     const route = useMemo(() => connection.route.sort((a: IPoint, b: IPoint) => {
         return a.position - b.position
     }), [connection]) 
-    const lastPos = Math.max(...route.map(point => point.position))
+    const lastPos = Math.max(...route.map(point => point.position), 0)
 
     const showRoute = () => {
         const start = route.length ? route[0].address : null  
