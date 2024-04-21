@@ -286,6 +286,328 @@
         "id": 24
     },
     {
+        "name": "51",
+        "type": "tram",
+        "route": [
+            {
+                "id": "62ea68af-1222-4f4a-892a-38fd4f6dd496",
+                "address": "Hindemithstr A, Mainz-Lerchenberg",
+                "coords": {
+                    "lon": 8.197208287629207,
+                    "lat": 49.958319849999995
+                },
+                "position": 1
+            },
+            {
+                "id": "d8928993-f235-494b-9a3d-e51f5a961ab8",
+                "address": "ZDF A, Mainz-Lerchenberg",
+                "coords": {
+                    "lon": 8.20255985,
+                    "lat": 49.9600286
+                },
+                "position": 2
+            },
+            {
+                "id": "d2d37171-f1fc-487d-9ed5-2da20c552572",
+                "address": "VRM A, Mainz",
+                "coords": {
+                    "lon": 8.210745650000003,
+                    "lat": 49.95976495
+                },
+                "position": 3
+            },
+            {
+                "id": "fa9b9019-de55-492b-b60f-8f3d3ff5a14b",
+                "address": "Marienborn/Bahnhof, Mainz",
+                "coords": {
+                    "lon": 8.2226772,
+                    "lat": 49.9606239
+                },
+                "position": 4
+            },
+            {
+                "id": "f156620e-7a19-42df-99fc-9c17b56891ea",
+                "address": "Wiesenstraße A, Mainz",
+                "coords": {
+                    "lon": 8.2271603,
+                    "lat": 49.962814
+                },
+                "position": 5
+            },
+            {
+                "id": "75faad24-3242-4789-8af2-902b187e98a8",
+                "address": "Im Borner Grund, A",
+                "coords": {
+                    "lon": 8.230168470651687,
+                    "lat": 49.964307500000004
+                },
+                "position": 6
+            },
+            {
+                "id": "9f98a812-d88c-4256-9e8a-22a3b2857133",
+                "address": "Wilhelm-Quetsch-Str A, Mainz",
+                "coords": {
+                    "lon": 8.236166940711893,
+                    "lat": 49.96982024938336
+                },
+                "position": 7
+            },
+            {
+                "id": "a421b0dd-550e-4390-a7ad-f3ad220a26ed",
+                "address": "Südring A, Mainz",
+                "coords": {
+                    "lon": 8.23835709023582,
+                    "lat": 49.9727858
+                },
+                "position": 8
+            },
+            {
+                "id": "08d36874-1a65-485f-8a8b-f4a2cc0dc215",
+                "address": "Hans-Böckler-Str A, Mainz",
+                "coords": {
+                    "lon": 8.239744985127974,
+                    "lat": 49.97619589967866
+                },
+                "position": 9
+            },
+            {
+                "id": "2f2eb677-431f-4b6f-bcd8-858c2433b5b2",
+                "address": "Ludwig-Nauth-Str A, Mainz",
+                "coords": {
+                    "lon": 8.2379847,
+                    "lat": 49.980659
+                },
+                "position": 10
+            },
+            {
+                "id": "80c44968-c3a8-48a2-80ab-3703ac91af0e",
+                "address": "Hildegard-v.-Bingen-Str A, Mainz",
+                "coords": {
+                    "lon": 8.23620685,
+                    "lat": 49.98514155
+                },
+                "position": 11
+            },
+            {
+                "id": "950c9c7a-69f5-4a2f-b871-4b5b111e8462",
+                "address": "Hochschule Mainz A, Mainz",
+                "coords": {
+                    "lon": 8.228492884794337,
+                    "lat": 49.987427867141804
+                },
+                "position": 12
+            },
+            {
+                "id": "1dca603d-f92e-41de-b6c3-8af810e84bb0",
+                "address": "Jakob-Heinz-Str/Arena, Mainz",
+                "coords": {
+                    "lon": 8.2239676,
+                    "lat": 49.9895247
+                },
+                "position": 13
+            },
+            {
+                "id": "a647fff2-552b-4497-a79f-bb37ec6f9f06",
+                "address": "Kisselberg, Mainz",
+                "coords": {
+                    "lon": 8.2268499,
+                    "lat": 49.9926978
+                },
+                "position": 14
+            },
+            {
+                "id": "db7d2de8-a03a-48c2-88cf-f45b6fa9f35b",
+                "address": "Friedrich-v.-Pfeiffer-Weg, Mainz",
+                "coords": {
+                    "lon": 8.2361535,
+                    "lat": 49.9943094
+                },
+                "position": 15
+            },
+            {
+                "id": "ca47e4bd-c530-4f21-b733-63d22710a962",
+                "address": "Universität A, Mainz",
+                "coords": {
+                    "lon": 8.245608812645326,
+                    "lat": 49.996190502410855
+                },
+                "position": 16
+            },
+            {
+                "id": "6d7ffbc7-dbdd-4f4d-9d3c-5f0e69ca9f0f",
+                "address": "Hauptbahnhof West, Mainz",
+                "coords": {
+                    "lon": 8.258938249629892,
+                    "lat": 49.99951523035014
+                },
+                "position": 17
+            },
+            {
+                "id": "68ed0ed7-15cd-4b90-8092-8b4bafc34015",
+                "address": "Mainz Hauptbahnhof B, Mainz",
+                "coords": {
+                    "lon": 8.2585676,
+                    "lat": 50.0004642
+                },
+                "position": 18
+            },
+            {
+                "id": "a584bbe6-7fdc-484f-9538-4221ac2bf2ca",
+                "address": "Lessingstraße B, Mainz",
+                "coords": {
+                    "lon": 8.2557945,
+                    "lat": 50.0069384
+                },
+                "position": 19
+            },
+            {
+                "id": "b41d8359-71bf-4d3e-b090-501835aa2adb",
+                "address": "Goethestraße B, Mainz",
+                "coords": {
+                    "lon": 8.251222547967435,
+                    "lat": 50.00967530014495
+                },
+                "position": 20
+            },
+            {
+                "id": "bc60c7e5-a3d3-4b68-a283-a48a92a8dc68",
+                "address": "Bismarckplatz B, Mainz",
+                "coords": {
+                    "lon": 8.2486933,
+                    "lat": 50.0125355
+                },
+                "position": 21
+            },
+            {
+                "id": "78b2454b-dd5d-4832-857c-3795cf8f0e0a",
+                "address": "Schott AG B, Mainz",
+                "coords": {
+                    "lon": 8.243466022857048,
+                    "lat": 50.01551698563915
+                },
+                "position": 22
+            },
+            {
+                "id": "0601f233-ff57-41ec-a750-e84ae6554865",
+                "address": "Zwerchallee B, Mainz",
+                "coords": {
+                    "lon": 8.238628028690036,
+                    "lat": 50.01624299095624
+                },
+                "position": 23
+            },
+            {
+                "id": "6e42c1ef-5dcb-4df3-8f97-82ace5291367",
+                "address": "Turmstraße B, Mainz",
+                "coords": {
+                    "lon": 8.233896936555988,
+                    "lat": 50.01428968672295
+                },
+                "position": 24
+            },
+            {
+                "id": "6ff18327-bfbe-4902-b636-a0614ee39659",
+                "address": "Gonsbachgärten B, Mainz",
+                "coords": {
+                    "lon": 8.234674555662927,
+                    "lat": 50.009523125821715
+                },
+                "position": 25
+            },
+            {
+                "id": "956b61cd-04eb-4763-8c9d-3635bbefd4ab",
+                "address": "An der Bruchspitze, Mainz",
+                "coords": {
+                    "lon": 8.2304678,
+                    "lat": 50.0052863
+                },
+                "position": 26
+            },
+            {
+                "id": "ff2e4adc-db35-44e6-a339-8d17b6ac2022",
+                "address": "Hugo-Eckener-Str, Mainz",
+                "coords": {
+                    "lon": 8.226195411601534,
+                    "lat": 50.00585121012867
+                },
+                "position": 27
+            },
+            {
+                "id": "8649b6be-7c94-4d04-9bde-9cea848c3a66",
+                "address": "Elbestraße B, Mainz",
+                "coords": {
+                    "lon": 8.2204354,
+                    "lat": 50.0055724
+                },
+                "position": 28
+            },
+            {
+                "id": "caee53cd-efe5-4e55-a230-c79aef522c45",
+                "address": "Josef-Ludwig-Platz, Mainz",
+                "coords": {
+                    "lon": 8.213788805485855,
+                    "lat": 50.0034287
+                },
+                "position": 29
+            },
+            {
+                "id": "8d6e0c1b-17cd-4930-a006-230ccd4fd0e9",
+                "address": "Nerotalstraße B, Mainz",
+                "coords": {
+                    "lon": 8.209704195361086,
+                    "lat": 50.002689335556425
+                },
+                "position": 30
+            },
+            {
+                "id": "afddf24e-dfb3-40de-a15c-58415813874b",
+                "address": "Kappellenstraße B, Mainz",
+                "coords": {
+                    "lon": 8.204056445370195,
+                    "lat": 50.00141388150544
+                },
+                "position": 31
+            },
+            {
+                "id": "4a163237-5bc5-4790-b2ff-846a1b51f19f",
+                "address": "Viermorgenweg B, Mainz",
+                "coords": {
+                    "lon": 8.19349100318319,
+                    "lat": 49.99830809124475
+                },
+                "position": 32
+            },
+            {
+                "id": "7b57f416-7058-4bda-8c14-882feb6e0083",
+                "address": "Gemarkungsgrenze B, Mainz",
+                "coords": {
+                    "lon": 8.187826097082235,
+                    "lat": 49.99625322242204
+                },
+                "position": 33
+            },
+            {
+                "id": "b68b1f7f-b8b4-4ea8-ad22-762bf4aef0f1",
+                "address": "Königsborn B, Mainz",
+                "coords": {
+                    "lon": 8.179169254883655,
+                    "lat": 49.99261264349599
+                },
+                "position": 34
+            },
+            {
+                "id": "075250c5-6152-4301-8685-b5f00958d9d0",
+                "address": "Poststraße B, Mainz-Finthen",
+                "coords": {
+                    "lon": 8.1784921,
+                    "lat": 49.9893877
+                },
+                "position": 35
+            }
+        ],
+        "id": 32
+    },
+    {
         "name": "52",
         "type": "tram",
         "route": [
@@ -2360,5 +2682,728 @@
             }
         ],
         "id": 26
+    },
+    {
+        "name": "93",
+        "type": "bus",
+        "route": [
+            {
+                "id": "cc9388bc-e101-44f6-bfc8-eb05136d21bb",
+                "address": "Hindemithstr B, Mainz-Lerchenberg",
+                "coords": {
+                    "lon": 8.197136449653444,
+                    "lat": 49.9583777
+                },
+                "position": 1
+            },
+            {
+                "id": "5527d8dc-5783-40f7-9eb2-7c3e8b98ac20",
+                "address": "Hebbelstraße A, Mainz",
+                "coords": {
+                    "lon": 8.1891469,
+                    "lat": 49.9576819
+                },
+                "position": 2
+            },
+            {
+                "id": "994ce413-1f1c-431e-94e1-680342e9ea86",
+                "address": "Menzelstraße, Mainz",
+                "coords": {
+                    "lon": 8.1865001,
+                    "lat": 49.9631815
+                },
+                "position": 3
+            },
+            {
+                "id": "be2aeb88-2ff4-446d-8f84-a3a1852f1675",
+                "address": "Heßlerweg, Mainz",
+                "coords": {
+                    "lon": 8.1881651,
+                    "lat": 49.9743954
+                },
+                "position": 4
+            },
+            {
+                "id": "1a195a6d-7685-4c8e-8379-21789603b69e",
+                "address": "Drais/Friedhof",
+                "coords": {
+                    "lon": 8.1882854,
+                    "lat": 49.9771673
+                },
+                "position": 5
+            },
+            {
+                "id": "dc0cd5d4-3270-4019-8312-be9ae07641ea",
+                "address": "Daniel-Brendel-Str, Mainz",
+                "coords": {
+                    "lon": 8.193813762844329,
+                    "lat": 49.979745644900134
+                },
+                "position": 6
+            },
+            {
+                "id": "1633870f-9f34-4a2f-9a2f-c6fa5998df33",
+                "address": "An der Oberbrücke, Mainz",
+                "coords": {
+                    "lon": 8.2081247,
+                    "lat": 49.9983368
+                },
+                "position": 7
+            },
+            {
+                "id": "1ac2a57b-2832-4514-bd32-49d01e068afe",
+                "address": "Gonsenheim/Bahnhof",
+                "coords": {
+                    "lon": 8.214009,
+                    "lat": 49.9985114
+                },
+                "position": 8
+            },
+            {
+                "id": "003b5217-ca62-4982-9eb3-8d27985126fd",
+                "address": "Mainzer Straße E, Mainz",
+                "coords": {
+                    "lon": 8.2232157,
+                    "lat": 50.0013851
+                },
+                "position": 9
+            },
+            {
+                "id": "c723422a-8f11-41c6-aee7-6d70ae4ff0c8",
+                "address": "An der Nonnenwiese, Mainz",
+                "coords": {
+                    "lon": 8.225392,
+                    "lat": 50.0016772
+                },
+                "position": 10
+            },
+            {
+                "id": "528bf4be-0f8e-4ef8-8d0e-c51978fb6cd6",
+                "address": "Am Jugendwerk, Mainz",
+                "coords": {
+                    "lon": 8.235013,
+                    "lat": 50.000081
+                },
+                "position": 11
+            },
+            {
+                "id": "c634d558-62b6-4675-928e-141fe60ff38c",
+                "address": "Kettelerkolleg, Mainz",
+                "coords": {
+                    "lon": 8.235013,
+                    "lat": 50.000081
+                },
+                "position": 12
+            },
+            {
+                "id": "ce1819a3-09f1-49a2-9e2a-7b1b38ce41ec",
+                "address": "Eduard-David-Str, Mainz",
+                "coords": {
+                    "lon": 8.2385298,
+                    "lat": 50.0048804
+                },
+                "position": 13
+            },
+            {
+                "id": "c41a9d84-0ae6-4ce3-ba67-bc0f71311d54",
+                "address": "Hartenbergpark, Mainz",
+                "coords": {
+                    "lon": 8.240520004376165,
+                    "lat": 50.01185275
+                },
+                "position": 14
+            },
+            {
+                "id": "f2f6f64d-6464-4c34-bd6e-2a74ba3b055e",
+                "address": "Am Judensand, Mainz",
+                "coords": {
+                    "lon": 8.2459712,
+                    "lat": 50.0039859
+                },
+                "position": 15
+            },
+            {
+                "id": "1ba51f06-277e-4ee0-87d7-305c09e51e74",
+                "address": "SWR Südwestrundfunk, Mainz",
+                "coords": {
+                    "lon": 8.2459712,
+                    "lat": 50.0039859
+                },
+                "position": 16
+            },
+            {
+                "id": "1fd6f5d6-6b8e-4a99-85f2-0a6015f0faad",
+                "address": "King-Park-Center, Mainz",
+                "coords": {
+                    "lon": 8.2470015,
+                    "lat": 50.0003424
+                },
+                "position": 17
+            },
+            {
+                "id": "b4363d6a-964e-487f-ab46-8ed2dc6210e2",
+                "address": "Universität E, Mainz",
+                "coords": {
+                    "lon": 8.2469267,
+                    "lat": 49.9983689
+                },
+                "position": 18
+            },
+            {
+                "id": "20c067c1-5eeb-4126-be1d-a1e48500506f",
+                "address": "Hauptbahnhof West, Mainz",
+                "coords": {
+                    "lon": 8.2585676,
+                    "lat": 50.0004642
+                },
+                "position": 19
+            },
+            {
+                "id": "03f19f43-428a-4d74-a789-65339b9332cf",
+                "address": "Mainz/Hauptbahnhof",
+                "coords": {
+                    "lon": 8.258723,
+                    "lat": 50.001113
+                },
+                "position": 20
+            },
+            {
+                "id": "d9a03d69-c7ba-47ae-bdb7-9ec3af033b2c",
+                "address": "Neubrunnenstraße, Mainz",
+                "coords": {
+                    "lon": 8.2630128,
+                    "lat": 50.0032082
+                },
+                "position": 21
+            },
+            {
+                "id": "9f1b17fc-054b-49bf-bcac-fa8f81275190",
+                "address": "Hindenburgplatz, Mainz",
+                "coords": {
+                    "lon": 8.2635759,
+                    "lat": 50.0063052
+                },
+                "position": 22
+            },
+            {
+                "id": "dfc279f6-bf3b-4b80-b8cf-292bb98122d7",
+                "address": "Bauhofstraße, Mainz",
+                "coords": {
+                    "lon": 8.2652382,
+                    "lat": 50.0056714
+                },
+                "position": 23
+            },
+            {
+                "id": "c33daa58-39bb-4736-b199-68c7cf14977c",
+                "address": "Schusterstraße, Mainz",
+                "coords": {
+                    "lon": 8.2714706,
+                    "lat": 50.0012542
+                },
+                "position": 24
+            },
+            {
+                "id": "de7480a6-f6c5-4548-8f77-52e311acda04",
+                "address": "Höfchen/Listmann",
+                "coords": {
+                    "lon": 8.2721378,
+                    "lat": 50.0006588
+                },
+                "position": 25
+            },
+            {
+                "id": "2e0bb04e-a11a-4c8a-a7ba-80df7f23d7df",
+                "address": "Pfaffengasse, Mainz",
+                "coords": {
+                    "lon": 8.2704831,
+                    "lat": 49.9969364
+                },
+                "position": 26
+            },
+            {
+                "id": "68e4507a-0eb2-47fc-b719-1d6972a5e9a0",
+                "address": "Altstadt/Holzhof, Mainz",
+                "coords": {
+                    "lon": 8.275743,
+                    "lat": 49.9951957
+                },
+                "position": 27
+            },
+            {
+                "id": "6da04d69-510a-4d0b-ad81-390bb64fc118",
+                "address": "Bf. Römisches Theater, Mainz",
+                "coords": {
+                    "lon": 8.279006031337042,
+                    "lat": 49.9939007783199
+                },
+                "position": 28
+            },
+            {
+                "id": "b14d41b1-f109-477f-8532-885d5d45e2e8",
+                "address": "Stadtpark B, Mainz",
+                "coords": {
+                    "lon": 8.281900840467838,
+                    "lat": 49.993129815789814
+                },
+                "position": 29
+            },
+            {
+                "id": "7c9b8ce0-0a1f-4dcf-99d2-b9e2f8a85b1e",
+                "address": "Zitadellenweg, Mainz",
+                "coords": {
+                    "lon": 8.2783991,
+                    "lat": 49.9926011
+                },
+                "position": 30
+            },
+            {
+                "id": "f8171f2b-e60b-4c69-8314-65bd22f7c2e2",
+                "address": "Ritterstraße, Mainz",
+                "coords": {
+                    "lon": 8.278844875230151,
+                    "lat": 49.99015965952822
+                },
+                "position": 31
+            },
+            {
+                "id": "811680be-fbd3-4935-9f2f-1d109abedbe8",
+                "address": "Hechtsheimer Str, Mainz",
+                "coords": {
+                    "lon": 8.27899332852396,
+                    "lat": 49.98792330048167
+                },
+                "position": 32
+            },
+            {
+                "id": "91b10039-f92d-4ac2-9889-846dc6c18530",
+                "address": "Bodelschwinghstr, Mainz",
+                "coords": {
+                    "lon": 8.279613293916132,
+                    "lat": 49.984557236444346
+                },
+                "position": 33
+            },
+            {
+                "id": "5a138e4e-0016-4250-941e-5bd9496b88a6",
+                "address": "Martin-Luther-Str, Mainz",
+                "coords": {
+                    "lon": 8.27988249922913,
+                    "lat": 49.98212458192222
+                },
+                "position": 34
+            },
+            {
+                "id": "78400ec2-4735-488a-ba3a-2eb314e68061",
+                "address": "Gymnasium Mainz-Oberstadt",
+                "coords": {
+                    "lon": 8.280227310521449,
+                    "lat": 49.97954575518315
+                },
+                "position": 35
+            },
+            {
+                "id": "bb49af57-9b2d-4176-997b-80342e528549",
+                "address": "Heiligkreuzweg, Mainz",
+                "coords": {
+                    "lon": 8.280834619573486,
+                    "lat": 49.97530948963336
+                },
+                "position": 36
+            },
+            {
+                "id": "c4726c9c-7223-49a6-9be4-f138b432823a",
+                "address": "Scheck-In-Center, Mainz",
+                "coords": {
+                    "lon": 8.289499340230504,
+                    "lat": 49.97564157623779
+                },
+                "position": 37
+            },
+            {
+                "id": "a6ae765b-0323-4bfb-a93c-28f084ea6627",
+                "address": "Bauhaus/Am Großberg",
+                "coords": {
+                    "lon": 8.2857634,
+                    "lat": 49.9718988
+                },
+                "position": 38
+            },
+            {
+                "id": "63f6b79c-fb98-4337-b5c6-01512949492d",
+                "address": "Weisenauer-Weg, Mainz",
+                "coords": {
+                    "lon": 8.2839623,
+                    "lat": 49.9715091
+                },
+                "position": 39
+            },
+            {
+                "id": "1b112b48-d369-46c4-a069-692d9a7f7a43",
+                "address": "Frankenhöhe, Mainz",
+                "coords": {
+                    "lon": 8.285126436020638,
+                    "lat": 49.963788455014196
+                },
+                "position": 40
+            }
+        ],
+        "id": 33
+    },
+    {
+        "name": "RE2",
+        "type": "train",
+        "route": [
+            {
+                "id": "de595ec1-5f82-46f2-81da-beb34a68df53",
+                "address": "Koblenz Hbf",
+                "coords": {
+                    "lon": 7.5892636,
+                    "lat": 50.3508227
+                },
+                "position": 1
+            },
+            {
+                "id": "fbc3fb4e-b7b0-4881-8e6d-41d40ee07b28",
+                "address": "Boppard Hbf",
+                "coords": {
+                    "lon": 7.5860131,
+                    "lat": 50.2314019
+                },
+                "position": 2
+            },
+            {
+                "id": "78177ea7-c31b-43ab-ace7-e285df0defc5",
+                "address": "Oberwesel",
+                "coords": {
+                    "lon": 7.7266193,
+                    "lat": 50.1075
+                },
+                "position": 3
+            },
+            {
+                "id": "eb900c1f-7ce5-468f-b0b6-8cb28d1dfadd",
+                "address": "Bacharach",
+                "coords": {
+                    "lon": 7.7683997,
+                    "lat": 50.0597943
+                },
+                "position": 4
+            },
+            {
+                "id": "6b22895e-0a28-492f-8bea-a7fffa928c84",
+                "address": "Bingen Hbf",
+                "coords": {
+                    "lon": 7.8850387,
+                    "lat": 49.9685029
+                },
+                "position": 5
+            },
+            {
+                "id": "19c0e6ca-ccaf-428f-8339-5aa2ba0d39ab",
+                "address": "Ingelheim",
+                "coords": {
+                    "lon": 8.052637451272615,
+                    "lat": 49.97570162385395
+                },
+                "position": 6
+            },
+            {
+                "id": "182971d1-f04a-4a58-8d82-f37c104be348",
+                "address": "Mainz Hbf",
+                "coords": {
+                    "lon": 8.25859402558468,
+                    "lat": 50.001381949999995
+                },
+                "position": 7
+            },
+            {
+                "id": "9bd27081-40c2-45ab-bd4a-eeee5fb9b22e",
+                "address": "Mainz Römisches Theater",
+                "coords": {
+                    "lon": 8.2782697,
+                    "lat": 49.9933235
+                },
+                "position": 8
+            },
+            {
+                "id": "e138def2-8cac-4f8f-a3ca-e0fe05b98bca",
+                "address": "Mainz-Bischofsheim",
+                "coords": {
+                    "lon": 8.3578777,
+                    "lat": 49.9931
+                },
+                "position": 9
+            },
+            {
+                "id": "f7051144-f282-471d-bcd6-b393e77f1372",
+                "address": "Rüsselsheim",
+                "coords": {
+                    "lon": 8.4138251,
+                    "lat": 49.991701
+                },
+                "position": 10
+            },
+            {
+                "id": "ae2c3b6e-4fe5-4a9d-b574-5dc5616d9c30",
+                "address": "Frankfurt Flughafen Regionalbahnhof",
+                "coords": {
+                    "lon": 8.5717548,
+                    "lat": 50.051299
+                },
+                "position": 11
+            },
+            {
+                "id": "a7939209-ba27-4eda-b6c1-e40d31d66734",
+                "address": "Frankfurt Niederrad",
+                "coords": {
+                    "lon": 8.6372448,
+                    "lat": 50.0807744
+                },
+                "position": 12
+            },
+            {
+                "id": "3accf6c5-7999-4ca3-ac07-51deef52f324",
+                "address": "Frankfurt Hbf",
+                "coords": {
+                    "lon": 8.6625808,
+                    "lat": 50.1066539
+                },
+                "position": 13
+            }
+        ],
+        "id": 31
+    },
+    {
+        "name": "S8",
+        "type": "train",
+        "route": [
+            {
+                "id": "09ebe791-0147-4448-bf89-7e48e0231885",
+                "address": "Wiesbaden Hbf",
+                "coords": {
+                    "lon": 8.2441888,
+                    "lat": 50.0704624
+                },
+                "position": 1
+            },
+            {
+                "id": "42bf2333-9024-4059-808c-45625cecee2f",
+                "address": "Wiesbaden Ost",
+                "coords": {
+                    "lon": 8.2565754,
+                    "lat": 50.0413044
+                },
+                "position": 2
+            },
+            {
+                "id": "828be744-ce64-406f-88cd-6a2e28abba4d",
+                "address": "Mainz Nord",
+                "coords": {
+                    "lon": 8.2456967,
+                    "lat": 50.019517
+                },
+                "position": 3
+            },
+            {
+                "id": "d33d03a2-1b1f-4c76-bda1-307ca7e020de",
+                "address": "Mainz Hbf",
+                "coords": {
+                    "lon": 8.25859402558468,
+                    "lat": 50.001381949999995
+                },
+                "position": 4
+            },
+            {
+                "id": "c3190278-dc96-47c1-b881-d20dbfac9265",
+                "address": "Mainz Römisches Theater",
+                "coords": {
+                    "lon": 8.2782697,
+                    "lat": 49.9933235
+                },
+                "position": 5
+            },
+            {
+                "id": "36493535-f724-435f-8a86-c9db1f951420",
+                "address": "Mainz-Gustavsburg",
+                "coords": {
+                    "lon": 8.3140533,
+                    "lat": 49.9943139
+                },
+                "position": 6
+            },
+            {
+                "id": "641dd816-f0dd-4774-8701-8445c3bf1b5d",
+                "address": "Mainz-Bischofsheim",
+                "coords": {
+                    "lon": 8.3578777,
+                    "lat": 49.9931
+                },
+                "position": 7
+            },
+            {
+                "id": "3e1e92d9-77f3-447a-9a37-2c156923e9ca",
+                "address": "Rüsselsheim Opelwerk",
+                "coords": {
+                    "lon": 8.3995396,
+                    "lat": 49.9877543
+                },
+                "position": 8
+            },
+            {
+                "id": "133afbfb-09b6-412c-8c47-fbd742daaf07",
+                "address": "Rüsselsheim",
+                "coords": {
+                    "lon": 8.4138251,
+                    "lat": 49.991701
+                },
+                "position": 9
+            },
+            {
+                "id": "2b45e6cd-75e5-4db3-a8a7-480bc429868b",
+                "address": "Raunheim",
+                "coords": {
+                    "lon": 8.4499439,
+                    "lat": 50.0097685
+                },
+                "position": 10
+            },
+            {
+                "id": "86a3443b-98e3-46a4-8482-62533a2ccdf8",
+                "address": "Kelsterbach",
+                "coords": {
+                    "lon": 8.5296632,
+                    "lat": 50.065151
+                },
+                "position": 11
+            },
+            {
+                "id": "b1c618df-cf11-4ad0-a2b3-53e785691103",
+                "address": "Frankfurt Flughafen Regionalbahnhof",
+                "coords": {
+                    "lon": 8.5717548,
+                    "lat": 50.051299
+                },
+                "position": 12
+            },
+            {
+                "id": "37d09a27-86e0-481d-a453-e9e34392d9e3",
+                "address": "Frankfurt Gateway-Gardens",
+                "coords": {
+                    "lon": 8.5947541,
+                    "lat": 50.056673
+                },
+                "position": 13
+            },
+            {
+                "id": "35273bf2-aeac-4db8-82ea-9f9eaeb0bd1c",
+                "address": "Frankfurt Stadion",
+                "coords": {
+                    "lon": 8.6330468,
+                    "lat": 50.0682137
+                },
+                "position": 14
+            },
+            {
+                "id": "1ddc362a-5c3f-42ed-a69f-9ba8b74e4291",
+                "address": "Frankfurt Niederrad",
+                "coords": {
+                    "lon": 8.6372448,
+                    "lat": 50.0807744
+                },
+                "position": 15
+            },
+            {
+                "id": "4d573a6c-e1ae-4bca-924a-fd9124ac0f23",
+                "address": "Frankfurt Hbf",
+                "coords": {
+                    "lon": 8.6625808,
+                    "lat": 50.1066539
+                },
+                "position": 16
+            },
+            {
+                "id": "efe3a839-c55e-42b3-a316-8defcc501637",
+                "address": "Frankfurt Taunusanlage",
+                "coords": {
+                    "lon": 8.6689503,
+                    "lat": 50.113636
+                },
+                "position": 17
+            },
+            {
+                "id": "b492c4af-8f93-4b4a-b0de-d03c472992eb",
+                "address": "Frankfurt Hauptwache",
+                "coords": {
+                    "lon": 8.6782794,
+                    "lat": 50.1139672
+                },
+                "position": 18
+            },
+            {
+                "id": "d62c4126-508b-4f2c-b7cb-eca8b223ff27",
+                "address": "Frankfurt Konstablerwache",
+                "coords": {
+                    "lon": 8.6862014,
+                    "lat": 50.1145559
+                },
+                "position": 19
+            },
+            {
+                "id": "60bfc1e5-4aec-4291-a41f-85978e37e4ef",
+                "address": "Frankfurt Ostendstraße",
+                "coords": {
+                    "lon": 8.6970061,
+                    "lat": 50.1125091
+                },
+                "position": 20
+            },
+            {
+                "id": "1a59d7cd-1b29-4dd8-abe4-b9bfcaa5f0a0",
+                "address": "Frankfurt Mühlberg",
+                "coords": {
+                    "lon": 8.700846,
+                    "lat": 50.1018292
+                },
+                "position": 21
+            },
+            {
+                "id": "a3d52b18-ec78-464f-8a55-dbc347bab765",
+                "address": "Offenbach Kaiserlei",
+                "coords": {
+                    "lon": 8.7382692,
+                    "lat": 50.1052091
+                },
+                "position": 22
+            },
+            {
+                "id": "26856852-54a2-481e-aee5-977137291e62",
+                "address": "Offenbach Ledermuseum",
+                "coords": {
+                    "lon": 8.7504746,
+                    "lat": 50.1059534
+                },
+                "position": 23
+            },
+            {
+                "id": "33dad436-3428-4cc0-999c-c59e480ef7d1",
+                "address": "Offenbach Marktplatz",
+                "coords": {
+                    "lon": 8.7631394,
+                    "lat": 50.1059644
+                },
+                "position": 24
+            },
+            {
+                "id": "725dfa50-0618-4851-8b68-2187ad537e21",
+                "address": "Offenbach Ost",
+                "coords": {
+                    "lon": 8.78867666954243,
+                    "lat": 50.10658665
+                },
+                "position": 25
+            }
+        ],
+        "id": 30
     }
 ]
