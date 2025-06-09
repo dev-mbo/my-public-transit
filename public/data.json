@@ -1412,6 +1412,256 @@
         "id": 29
     },
     {
+        "name": "63",
+        "type": "bus",
+        "route": [
+            {
+                "id": "6f544ed2-28e3-4757-aacc-29d99cf5973b",
+                "address": "Chana-Kahn-Str, Mainz-Weisenau",
+                "coords": {
+                    "lon": 8.289106209540881,
+                    "lat": 49.97225532642983
+                },
+                "position": 1
+            },
+            {
+                "id": "7d7bb4f5-cc04-46a9-a2d3-740ba0a243b9",
+                "address": "Scheck-In-Center, Mainz-Weisenau",
+                "coords": {
+                    "lon": 8.2890249,
+                    "lat": 49.9766242
+                },
+                "position": 2
+            },
+            {
+                "id": "0c0cc17f-2169-4aa8-b8df-4a9fa5e4ec09",
+                "address": "Wilhelm-Theodor-Römheld, Mainz-Weisenau",
+                "coords": {
+                    "lon": 8.290054953473451,
+                    "lat": 49.97842459344747
+                },
+                "position": 3
+            },
+            {
+                "id": "c8028313-fe15-493d-8bc1-d3ab799740c8",
+                "address": "Alter Friedhof, Mainz-Weisenau",
+                "coords": {
+                    "lon": 8.295213536970518,
+                    "lat": 49.98031517095973
+                },
+                "position": 4
+            },
+            {
+                "id": "cb1f8f57-197a-497f-840c-e04a92accddb",
+                "address": "Hohlstraße, Mainz-Weisenau",
+                "coords": {
+                    "lon": 8.299194190220982,
+                    "lat": 49.98318612661501
+                },
+                "position": 5
+            },
+            {
+                "id": "964a382f-8364-43d6-bf91-c439e3ab65d0",
+                "address": "Wormser Straße, Mainz-Weisenau",
+                "coords": {
+                    "lon": 8.303276647977896,
+                    "lat": 49.983195573598806
+                },
+                "position": 6
+            },
+            {
+                "id": "3b3ca5b1-f515-4e96-9041-1b3dab451139",
+                "address": "Weisenauer Synagoge",
+                "coords": {
+                    "lon": 8.301084998205706,
+                    "lat": 49.984958615781466
+                },
+                "position": 7
+            },
+            {
+                "id": "88a6afcf-3f3e-44e8-87f5-38e69c5f8d04",
+                "address": "Favorite Parkhotel",
+                "coords": {
+                    "lon": 8.290386680806341,
+                    "lat": 49.99042191826402
+                },
+                "position": 8
+            },
+            {
+                "id": "a304b912-51bb-43b9-9441-a439eced5d32",
+                "address": "Stadtpark",
+                "coords": {
+                    "lon": 8.282219984813295,
+                    "lat": 49.99333641921487
+                },
+                "position": 9
+            },
+            {
+                "id": "a39e737a-655f-47c9-8c57-b7fbab92aedc",
+                "address": "Holzturm",
+                "coords": {
+                    "lon": 8.278736245106428,
+                    "lat": 49.996763794882014
+                },
+                "position": 10
+            },
+            {
+                "id": "64c22780-3ac0-4115-ba6e-55df8b1221df",
+                "address": "Fischtor",
+                "coords": {
+                    "lon": 8.277136795181931,
+                    "lat": 49.9991828675673
+                },
+                "position": 11
+            },
+            {
+                "id": "20844c6a-085d-48ee-8944-1b71080493a9",
+                "address": "Rheingoldhalle",
+                "coords": {
+                    "lon": 8.275008009094963,
+                    "lat": 50.001332851543
+                },
+                "position": 12
+            },
+            {
+                "id": "e302d233-f3ce-435e-866d-8821e7b70b5e",
+                "address": "Höfchen",
+                "coords": {
+                    "lon": 8.27188923216672,
+                    "lat": 49.999767740468826
+                },
+                "position": 13
+            },
+            {
+                "id": "76f04327-7d05-491b-ab71-0b868958b87c",
+                "address": "Schillerplatz",
+                "coords": {
+                    "lon": 8.267007527051893,
+                    "lat": 49.99873027005566
+                },
+                "position": 14
+            },
+            {
+                "id": "01951773-f765-489f-b73d-65713dfa3f20",
+                "address": "Münsterplatz",
+                "coords": {
+                    "lon": 8.263262836733787,
+                    "lat": 50.00050988508167
+                },
+                "position": 15
+            },
+            {
+                "id": "f62e95a0-b18f-405b-86c4-ef99718d2d3f",
+                "address": "Hauptbahnhof, Mainz",
+                "coords": {
+                    "lon": 8.26024125,
+                    "lat": 50.001193549999996
+                },
+                "position": 16
+            },
+            {
+                "id": "41286be1-7434-41b3-8e88-917ba402edc2",
+                "address": "Fritz-Kohl-Straße, Mainz",
+                "coords": {
+                    "lon": 8.254113298167251,
+                    "lat": 50.00424091459519
+                },
+                "position": 17
+            },
+            {
+                "id": "94f8708b-a5c2-4e32-84c3-bf8c7b5c155a",
+                "address": "Goetheunterführung",
+                "coords": {
+                    "lon": 8.250183581850479,
+                    "lat": 50.006302114498794
+                },
+                "position": 18
+            },
+            {
+                "id": "8acc781d-ae91-4958-8d1a-c4fc46a0ce97",
+                "address": "Mombacher Tor",
+                "coords": {
+                    "lon": 8.244930934442499,
+                    "lat": 50.009762436024886
+                },
+                "position": 19
+            },
+            {
+                "id": "cece7af5-3903-4d4e-9eb1-d1845493c47f",
+                "address": "Alte Lokhalle",
+                "coords": {
+                    "lon": 8.241763178708716,
+                    "lat": 50.01350509849112
+                },
+                "position": 20
+            },
+            {
+                "id": "2b4a9306-00a8-44de-a379-14f4323e7a40",
+                "address": "Zwerchallee",
+                "coords": {
+                    "lon": 8.238657844881345,
+                    "lat": 50.01628598290449
+                },
+                "position": 21
+            },
+            {
+                "id": "cc3b9c1f-e9ad-4d3a-ae8a-2d2579cdbc3b",
+                "address": "Alte Waggonfabrik",
+                "coords": {
+                    "lon": 8.236039401923993,
+                    "lat": 50.01764561504686
+                },
+                "position": 22
+            },
+            {
+                "id": "22786b9d-10d9-44b7-8678-d8725c5a3498",
+                "address": "Eintrachthalle",
+                "coords": {
+                    "lon": 8.232597231844846,
+                    "lat": 50.01936802732044
+                },
+                "position": 23
+            },
+            {
+                "id": "fb4b7938-28ec-4818-b627-4726a9573c2f",
+                "address": "Mombach Bahnhof",
+                "coords": {
+                    "lon": 8.2287477,
+                    "lat": 50.0216128
+                },
+                "position": 24
+            },
+            {
+                "id": "4547ef7a-a601-4744-93e1-cdc186ced90b",
+                "address": "Ortsverwaltung, Mombach",
+                "coords": {
+                    "lon": 8.223940398379746,
+                    "lat": 50.02253906280231
+                },
+                "position": 25
+            },
+            {
+                "id": "7a28e5b5-6a75-4cd5-a294-be53bc93b449",
+                "address": "Am Schwermer",
+                "coords": {
+                    "lon": 8.219240405798477,
+                    "lat": 50.020966396642535
+                },
+                "position": 26
+            },
+            {
+                "id": "b04d46fb-1c11-49ac-b7d4-435b8c18d7c6",
+                "address": "Westring, Mombach",
+                "coords": {
+                    "lon": 8.218864222095146,
+                    "lat": 50.01526948080078
+                },
+                "position": 27
+            }
+        ],
+        "id": 34
+    },
+    {
         "name": "64",
         "type": "bus",
         "route": [
